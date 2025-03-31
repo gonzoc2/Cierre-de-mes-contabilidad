@@ -17,9 +17,9 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-provisiones = 'https://docs.google.com/spreadsheets/d/1NjwDNiOgdiRXRIe0C0ksfS0t2ImJW9yC/export?format=xlsx'
-mapeo = 'https://docs.google.com/spreadsheets/d/1takBliEu8CodgMM-znG-TH023pETDnRvlfznq-g7laM/export?format=xlsx'
-base = 'https://docs.google.com/spreadsheets/d/1Ny7GxH1ls6ax2FZqwfdVH-T530vWC7cdOipDrZkyn38/export?format=xlsx'
+provisiones = st.secrets["google_drive"]["provisiones"]
+mapeo = st.secrets["google_drive"]["mapeo"]
+base = st.secrets["google_drive"]["base"]
 
 @st.cache_data
 def cargar_datos_pro(url, sheet_name=None):
@@ -44,8 +44,8 @@ df_base = cargar_datos(base)
 @st.cache_data
 def get_xtr_as_dataframe():
     # 1. Obtener el reporte (contenido del archivo XTR)
-    headers = rr.headers('rolmedo', 'Mexico.2022')
-    algo = rr.runReport('/Custom/ESGARI/Qlik/reportesNecesarios/XXRO_EXTRACTOR_GL_REP.xdo', 'ekck.fa.us6', headers)
+    headers = rr.headers(["RR"]["usuario_otm"], ["RR"]["Mexico.2022"])
+    algo = rr.runReport(["RR"][path"], 'ekck.fa.us6', headers)
 
     # 2. Verificar el tipo de "algo"
     if isinstance(algo, bytes):
