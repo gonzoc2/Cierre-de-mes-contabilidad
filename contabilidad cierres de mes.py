@@ -34,7 +34,7 @@ password_input = st.text_input("Contraseña", type="password")
 
 if st.button("Iniciar sesión"):
     if authenticate(username_input, password_input):
-        st.success("Bienvenid@!")
+        st.success("Bienvenid@, {username_input}!")
         provisiones = st.secrets["google_drive"]["provisiones"]
         mapeo = st.secrets["google_drive"]["mapeo"]
         base = st.secrets["google_drive"]["base"]
