@@ -44,8 +44,8 @@ df_base = cargar_datos(base)
 @st.cache_data
 def get_xtr_as_dataframe():
     # 1. Obtener el reporte (contenido del archivo XTR)
-    headers = rr.headers(["RR"]["usuario_otm"], ["RR"]["Mexico.2022"])
-    algo = rr.runReport(["RR"]["path"], 'ekck.fa.us6', headers)
+    headers = rr.headers(st.secrets["RR"]["usuario_otm"], st.secrets["RR"]["Mexico.2022"])
+    algo = rr.runReport(st.secrets["RR"]["path"], 'ekck.fa.us6', headers)
 
     # 2. Verificar el tipo de "algo"
     if isinstance(algo, bytes):
