@@ -241,4 +241,7 @@ else:
             current_col = col3
         df_cuentas(dfsb, 'Cuenta_Nombre_A', x, current_col, mes, df_base)
         i = i+1
-
+    if st.button("Cerrar sesión"):
+        st.session_state.authenticated = False
+        st.experimental_user.clear()  # Limpia la información del usuario
+        st.rerun()
