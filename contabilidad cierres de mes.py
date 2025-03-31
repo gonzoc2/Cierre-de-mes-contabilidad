@@ -243,5 +243,4 @@ else:
         i = i+1
     if st.button("Cerrar sesión"):
         st.session_state.authenticated = False
-        st.experimental_user.clear()  # Limpia la información del usuario
         st.rerun()
