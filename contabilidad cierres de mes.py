@@ -46,6 +46,7 @@ if not st.session_state.authenticated:
             st.error("Usuario o contraseña incorrectos")
 else:
     # Contenido de la aplicación para usuarios autenticados
+    st.success(f"Bienvenid@, {username_input}!")
     provisiones = st.secrets["google_drive"]["provisiones"]
     mapeo = st.secrets["google_drive"]["mapeo"]
     base = st.secrets["google_drive"]["base"]
