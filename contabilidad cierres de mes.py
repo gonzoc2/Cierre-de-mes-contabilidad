@@ -41,7 +41,7 @@ if not st.session_state.authenticated:
         if authenticate(username_input, password_input):
             st.session_state.authenticated = True
             st.success(f"Bienvenid@, {username_input}!")
-            st.experimental_rerun()  # Recarga la página para reflejar el cambio
+            st.rerun()  # Recarga la página para reflejar el cambio
         else:
             st.error("Usuario o contraseña incorrectos")
 else:
