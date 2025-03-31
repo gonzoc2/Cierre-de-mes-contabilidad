@@ -29,8 +29,9 @@ def authenticate(username, password):
     return False
 
 # Interfaz de usuario
-username_input = st.text_input("Usuario")
-password_input = st.text_input("Contraseña", type="password")
+if not authenticate(username_input, password_input):
+    username_input = st.text_input("Usuario")
+    password_input = st.text_input("Contraseña", type="password")
 
 if st.button("Iniciar sesión"):
     if authenticate(username_input, password_input):
