@@ -20,10 +20,6 @@ st.markdown(
 usernames = st.secrets["credentials"]["usernames"]
 passwords = st.secrets["credentials"]["passwords"]
 
-v = st.secrets
-
-print(v)
-
 # Función para verificar las credenciales
 def authenticate(username, password):
     if username in usernames:
@@ -248,5 +244,6 @@ else:
     if st.button("Cerrar sesión"):
         st.session_state.authenticated = False
         st.rerun()
+
 
 
